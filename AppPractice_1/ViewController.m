@@ -18,7 +18,7 @@ float screenWidth;
 float screenHeight;
 UIApplication *statusBar;
 
-float labelTextSize;
+CGFloat labelTextSize;
 CGFloat colorLabelHeight;
 CGFloat labelHeight;
 
@@ -248,8 +248,9 @@ NSData *retrievedData;
         labelHeight = (CGFloat)(screenHeight * 0.04);
     }
     
-    labelTextSize = labelHeight * 0.69;
-    labelTextSize = labelTextSize > 11.5 ? labelTextSize : 11.5;
+    labelTextSize = labelHeight * 0.65;
+    labelTextSize = labelTextSize < 14 ? labelTextSize : 14;
+
     [self formatColorLabels];
     
 }
@@ -282,7 +283,7 @@ NSData *retrievedData;
     for (int i = 0; i < COLORS_DISPLAY; i++) {
         //((UILabel *) _labels[i]).layer.borderWidth = 1.0;
         //((UILabel *) _labels[i]).layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor colorWithRed:(float)204/255 green:(float)204/255 blue:(float)204/255 alpha:1.0]);
-        [((UILabel *)_labels[i]) setFont:[UIFont boldSystemFontOfSize: labelTextSize]];
+        [((UILabel *)_labels[i]) setFont:[UIFont systemFontOfSize: labelTextSize]];
     }
 }
 
